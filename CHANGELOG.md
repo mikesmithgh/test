@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/mikesmithgh/test/compare/v1.1.0...v1.2.0) (2024-03-20)
+
+
+### Features
+
+* another one ([49e830c](https://github.com/mikesmithgh/test/commit/49e830c56ea098f58c0b701002590d2bbca3e592))
+
 # [1.1.0](https://github.com/mikesmithgh/test/compare/v1.0.0...v1.1.0) (2024-03-20)
 
 
