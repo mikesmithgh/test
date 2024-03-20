@@ -1,0 +1,51 @@
+name: goreleaser
+
+on:
+  pull_request:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+jobs:
+  goreleaser:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Go
+        uses: actions/setup-go@v4
+
+      - name: Setup Node 
+        uses: actions/setup-node@v3
+        with:
+          node-version: lts/*
+
+      - name: Install GoReleaser
+        uses: goreleaser/goreleaser-action@v5
+        with:
+          distribution: goreleaser
+          version: latest
+          install-only: true
+
+      - name: Run GoReleaser
+        uses: goreleaser/goreleaser-action@v5
+        with:
+          distribution: goreleaser
+          version: latest
+          install-only: true
+
+      - name: Semantic Release
+        run: |
+          npm install @semantic-release/git @semantic-release/changelog @semantic-release/exec -D
+          npx semantic-release
+        env:
+          GH_TOKEN: ${{ secrets.TEST_CI_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.TEST_CI_TOKEN }}
+
