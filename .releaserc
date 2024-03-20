@@ -22,7 +22,7 @@
       "@semantic-release/exec",
       {
         "verifyConditionsCmd": "./scripts/release_verify.sh",
-        "publishCmd": "./scripts/release_publish.sh ${nextRelease.notes}"
+        "publishCmd": "./scripts/release_publish.sh \"${nextRelease.notes}\""
       }
     ]
   ]
