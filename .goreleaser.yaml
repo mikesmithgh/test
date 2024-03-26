@@ -26,6 +26,7 @@ brews:
   - repository:
       owner: mikesmithgh
       name: homebrew-test
+      token: "{{ .Env.TAP_GITHUB_TOKEN }}"
     folder: Formula
     goarm: "7"
     homepage: https://github.com/mikesmithgh/git-prompt-string
